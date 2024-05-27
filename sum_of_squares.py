@@ -20,7 +20,7 @@ Returns
 - False if the input is not the sum of 2 squares
 """
 def get_sum_square(p):
-    for a in range(0,p):
+    for a in range(1,p):
         b = p-(a**2)
         if b <=0:
             return False
@@ -43,6 +43,26 @@ def square_sum_prime(n):
 
     return dict(zip(square_sum_primes, square_sums))
 
-import pprint
-pprint.pprint(square_sum_prime(100))
-print(isinstance(4**.5, int))
+"""
+Returns a dictionary of all integers c <=n that are pythag triples:
+i.e:
+    a dictionary of the form {c: (a,b)} 
+such that:
+    c = a^2 + b^2
+
+* note I know these are normally of the form c^2 = a^2 + b^2, but this makes 
+    it consistent with the format for square sum primes
+"""
+def pythag_triples(n):
+    square_sum_cs = []
+    square_sums = []
+
+    squares = [i**2 for i in range(1,int(n**.5))]
+    for c in squares:
+        sum = get_sum_square(c)
+        if sum != False:
+            square_sum_cs.append(c)
+            square_sums.append(sum)
+
+    return dict(zip(square_sum_cs, square_sums))
+
