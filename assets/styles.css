@@ -1,0 +1,117 @@
+body {
+  margin: 0px 0px 0px 0px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f5f0e9 !important;
+}
+
+body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.plotly .hoverlayer .hovertext rect {
+  /* fill: white !important; */
+  fill-opacity: 1 !important;
+  padding: 50px !important;
+}
+
+.hoverlayer {
+  background-color: pink !important;
+}
+
+.plotly .hoverlayer .hovertext .name {
+  fill: black !important;
+  background-color: blue !important;
+}
+
+.plot {
+  border: 1px solid white;
+  width: fit-content;
+  height: fit-content;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  gap: 50px;
+}
+
+.params-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.text-field {
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font: Futura;
+  outline: none;
+  background-color: inherit;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+}
+
+.checklist label {
+  color: black;
+  font: Futura;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 10px;
+  padding: 3px;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: inherit !important;
+  border: 1px solid black;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "x";
+
+  /* transform: scale(0); */
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+/* input[type="checkbox"]:checked::before {
+  transform: scale(1);
+} */
+input[type="checkbox"]:hover {
+  content: "";
+
+  background-color: rgba(0, 0, 0, 0.152);
+}
+
+.modebar {
+  display: none !important;
+}
+#prime_color > div > div > div > div:nth-child(2) {
+  display: None !important;
+}
+#pythag_color > div > div > div > div:nth-child(2) {
+  display: none !important;
+}
+
+.cQJXpB > div,
+.cQJXpB {
+  border: none !important;
+}

@@ -26,6 +26,7 @@ def plot_circles_points(fig, data, color, name):
             y0 = -radius, y1 = radius,
             line_color = color,
             fillcolor = None,
+            line_width = .5,
             opacity = .8
         )
 
@@ -46,17 +47,16 @@ def plot_circles_points(fig, data, color, name):
         TIME TO  PLOT THE STUFF
 ########################################
 """
-def plot():
+def plot(max = 100, pythag = True, primes = True, prime_color = "#F1AD3E", pythag_color = "#EF6E10"):
     fig = go.Figure()
-    max = 100
-    # compute / plot the primes = sum of 2 squares
-    square_sum_data = square_sum_prime(max) #data is of the form {prime:(a,b)} where a^2 + b^2 = prime. b>a
-    fig = plot_circles_points(fig , square_sum_data, color = "#F1AD3E", name = "primes square sums")
-
-
-    # compute / plot the pythagorean tripples
-    pythag_triples_data = pythag_triples(max)
-    fig = plot_circles_points(fig, pythag_triples_data, color = "#EF6E10", name = "pythag triples")
+    if primes:
+        # compute / plot the primes = sum of 2 squares
+        square_sum_data = square_sum_prime(max) #data is of the form {prime:(a,b)} where a^2 + b^2 = prime. b>a
+        fig = plot_circles_points(fig , square_sum_data, color = prime_color, name = "primes square sums")
+    if pythag:
+        # compute / plot the pythagorean tripples
+        pythag_triples_data = pythag_triples(max)
+        fig = plot_circles_points(fig, pythag_triples_data, color =pythag_color, name = "pythag triples")
 
 
     # add markers for each point
@@ -69,21 +69,26 @@ def plot():
         "tickmode":"array",
         "tickvals" :list(range(axis_bound)),
         'showticklabels': False,
-        "gridcolor": "#C9DA83"
-        }
+        "gridcolor": "#FCF7F0",
+        "zeroline":False
+    }
 
     fig.update_xaxes(**axis_style_params)
     fig.update_yaxes(**axis_style_params)
 
-    fig.update_layout(width=850, height=800, 
+    fig.update_layout(
+        width = 700,
+        height = 700,
+        showlegend = False,
         plot_bgcolor = "#F5F0E9", 
-        title = "Primes That Are the Sums of Two Squares ( + Pythag triples )", 
-        font_family="Futura",
+        paper_bgcolor='rgba(0,0,0,0)',
+        margin=dict(l=20, r=20, t=20, b=20),
         hoverlabel=dict(
                 bgcolor="#F5F0E9",
                 font_size=10,
                 font_family="Futura"
-        ))
+            
+    ))
 
     return fig
 
